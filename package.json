@@ -1,10 +1,10 @@
 {
-  "name": "Bma RPG API",
+  "name": "Bma-RPG-API",
   "version": "0.0.1",
   "private": true,
   
   "dependencies": {
     "body-parser": "~1.18.3",
-    "express": "~4.16.4",
+    "express": "~4.16.4"
   }
 }
