@@ -87,7 +87,7 @@ function getChar(name){
 	console.log(`Looking for ${name}...`);
 	while(!selectedChar && i< chars.characters.length)
 	{
-	  	if(chars.characters[i].name == name){
+	  	if(chars.characters[i].name.toLowerCase() == name.toLowerCase()){
 	  		selectedChar = chars.characters[i];
 	  	}
 	  	i++;
@@ -102,7 +102,7 @@ function getAbility(char,ability){
 	console.log(`Looking for ${ability} in ${JSON.stringify(char.Abilities)}...`);
 	while(!slctdAbility && i< char.Abilities.length)
 	{
-	  	if(char.Abilities[i].name == ability){
+	  	if(char.Abilities[i].name.toLowerCase() == ability.toLowerCase()){
 	  		slctdAbility = char.Abilities[i];
 	  	}
 	  	i++;
