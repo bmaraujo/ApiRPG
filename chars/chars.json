@@ -8,11 +8,6 @@
 			"mod":"+4"
 		},
 		{
-			"name":"STR",
-			"value":19,
-			"mod":"+4"
-		},
-		{
 			"name":"DEX",
 			"value":13,
 			"mod":"+1"
