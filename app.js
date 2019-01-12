@@ -6,7 +6,7 @@ var chars = require('./routes/chars');
 
 var app = express();
 
-var port = 8081;
+var port = process.env.PORT || 8081;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
