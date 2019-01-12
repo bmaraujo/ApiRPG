@@ -21,7 +21,7 @@ As for now all characters need to be added manually to the chars.json file in ch
 `/chars/:charName/Initiative` - returns a char's initiative.
 
 ### Get char Proeficiency Bonus
-`/chars/:charName/Proeficinecy`
+`/chars/:charName/Proeficiency`
 
 ### Get char Hit Die
 `/chars/:charName/Hitdie`
