@@ -4,27 +4,27 @@
 		"HP":"15",
 		"Abilities": [{
 			"name":"STR",
-			"value":19,
+			"value":19
 		},
 		{
 			"name":"DEX",
-			"value":13,
+			"value":13
 		},
 		{
 			"name":"CON",
-			"value":17,
+			"value":17
 		},
 		{
 			"name":"INT",
-			"value":8,
+			"value":8
 		},
 		{
 			"name":"WIS",
-			"value":12,
+			"value":12
 		},
 		{
 			"name":"CHA",
-			"value":8,
+			"value":8
 		}],
 		"Initiative":"+1",
 		"AC":14,
