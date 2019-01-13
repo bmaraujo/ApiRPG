@@ -45,7 +45,11 @@ router.get('/:charName/Ability/:ability', function(req, res, next) {
 router.get('/:charName/Ability/:ability/mod', function(req, res, next) {
 	let char = getChar(req.params.charName);
 	let ability = getAbility(char, req.params.ability);
-	return res.status(200).json({success:true, data: ability.mod});
+	let mod = Math.floor((parseint(ability.value) - 10)/2);
+	if(mod > 0){
+		mod = "+" + mod;
+	}
+	return res.status(200).json({success:true, data: mod});
 });
 
 /* GET Char AC */

@@ -5,32 +5,26 @@
 		"Abilities": [{
 			"name":"STR",
 			"value":19,
-			"mod":"+4"
 		},
 		{
 			"name":"DEX",
 			"value":13,
-			"mod":"+1"
 		},
 		{
 			"name":"CON",
 			"value":17,
-			"mod":"+3"
 		},
 		{
 			"name":"INT",
 			"value":8,
-			"mod":"-1"
 		},
 		{
 			"name":"WIS",
 			"value":12,
-			"mod":"+1"
 		},
 		{
 			"name":"CHA",
 			"value":8,
-			"mod":"-1"
 		}],
 		"Initiative":"+1",
 		"AC":14,
