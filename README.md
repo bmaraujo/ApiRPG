@@ -39,4 +39,4 @@ As for now all characters need to be added manually to the chars.json file in ch
 `v1/chars/:charName/Ability/:ability/mod` -  Returns a char's ability value.
 
 ### Roll
-`v1/roll?dice - Return a roll. Use RPG dice notation, eg: 1d20+6. Modifiers are not mandatory. Don't forget to escape the mod sign
+`v1/roll?dice` - Return a roll. Use RPG dice notation, eg: 1d20+6. Modifiers are not mandatory. Don't forget to escape the mod sign
