@@ -6,28 +6,28 @@ As for now all characters need to be added manually to the chars.json file in ch
 
 ## Routes
 ### Get char List
-`/chars` - This will list all characters in the chars.json
+`v1/chars` - This will list all characters in the chars.json
 
 ### Get char
-`/chars/:charName` - This will return the whole char information. `charName` should be a name contained in the characters array in chars.json.
+`v1/chars/:charName` - This will return the whole char information. `charName` should be a name contained in the characters array in chars.json.
 
 ### Get char HP
-`/chars/:charName/HP` - Returns a char's HP.
+`v1/chars/:charName/HP` - Returns a char's HP.
 
 ### Get char AC
-`/chars/:charName/AC` - returns a char's AC.
+`v1/chars/:charName/AC` - returns a char's AC.
 
 ### Get char initiative
-`/chars/:charName/Initiative` - returns a char's initiative.
+`v1/chars/:charName/Initiative` - returns a char's initiative.
 
 ### Get char Proeficiency Bonus
-`/chars/:charName/Proeficiency`
+`v1/chars/:charName/Proeficiency`
 
 ### Get char Hit Die
-`/chars/:charName/Hitdie`
+`v1/chars/:charName/Hitdie`
 
 ### Get char ability
-`/chars/:charName/Ability/:ability` -  Returns a char's ability value. `ability` should be one of the following:
+`v1/chars/:charName/Ability/:ability` -  Returns a char's ability value. `ability` should be one of the following:
 * STR
 * DEX
 * CON
@@ -36,4 +36,7 @@ As for now all characters need to be added manually to the chars.json file in ch
 * CHA
 
 ### Get char ability's modifier
-`/chars/:charName/Ability/:ability/mod` -  Returns a char's ability value.
+`v1/chars/:charName/Ability/:ability/mod` -  Returns a char's ability value.
+
+### Roll
+`v1/roll?dice - Return a roll. Use RPG dice notation, eg: 1d20+6. Modifiers are not mandatory. Don't forget to escape the mod sign
