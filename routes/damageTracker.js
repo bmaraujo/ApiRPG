@@ -61,6 +61,7 @@ function updateHealth(amount, charName,res){
 		if(total < 0){ //total should never be less than 0, so delete the entry
 			console.log(`deleting Redis entry ${damageKey}`);
 			redClient.del(damageKey);
+			total = 0;
 		}
 		else{
 			console.log(`setting Redis entry ${damageKey} with value of ${total}`);
