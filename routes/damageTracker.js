@@ -48,7 +48,7 @@ function updateHealth(amount, charName,res){
 		console.log(`reply:${reply}`);
 
 		//if there is damage tracker, update
-		if(reply && !isNan(reply)){
+		if(reply && !isNaN(reply)){
 			console.log(`adding ${reply} from Redis...`);
 			total = parseInt(reply);
 		}
