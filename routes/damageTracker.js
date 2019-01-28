@@ -10,7 +10,14 @@ let redOption = {
 	password : process.env.redisPass
 }
 
-const redClient = redis.createClient(redOption);
+try{
+	const redClient = redis.createClient(redOption);
+	console.log(`client is ${redClient}`);
+}
+catch(e){
+	console.log(e);
+}
+
 
 
 // GET - Returns charName health and damage
