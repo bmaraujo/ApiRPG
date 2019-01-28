@@ -10,15 +10,8 @@ let redOption = {
 	password : process.env.redisPass
 }
 
-try{
-	const redClient = redis.createClient(redOption);
-	console.log(`client is ${redClient}`);
-}
-catch(e){
-	console.log(e);
-}
-
-
+const redClient = redis.createClient(redOption);
+console.log(`client is ${redClient}`);
 
 // GET - Returns charName health and damage
 router.get('/:charName/hit', function(req,res){
