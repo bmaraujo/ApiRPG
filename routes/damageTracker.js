@@ -40,6 +40,11 @@ function updateHealth(amount, charName,res){
 	// This will return a JavaScript String
 	redClient.get(damageKey, function (err, reply) {
 
+		if(err){
+			console.log(`Erro ao buscar ${damageKey}: ${err}`);
+			return res.status(500).json({success:false,data:err});
+		}
+
 		console.log(`reply:${reply}`);
 
 		//if there is damage tracker, update
