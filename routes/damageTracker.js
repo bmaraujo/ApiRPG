@@ -6,8 +6,8 @@ const router = express.Router();
 const DAMAGE_KEY = "$0_damage";
 
 let redOption = {
-	url: process.env.redisUrl || 'redis://redis-19127.c1.ap-southeast-1-1.ec2.cloud.redislabs.com:19127',
-	password : process.env.redisPass || 'zm5RChtNXsZOpKlPUm6RkSN80d3wLqZd'
+	url: process.env.redisUrl,
+	password : process.env.redisPass
 }
 
 const redClient = redis.createClient(redOption);
