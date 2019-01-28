@@ -52,7 +52,7 @@ function updateHealth(amount, charName,res){
 			total = parseInt(reply);
 		}
 
-		total += amount;
+		total += parseInt(amount);
 
 		console.log(`totalDmg:${total}`);
 
