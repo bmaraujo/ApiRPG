@@ -1,7 +1,7 @@
-var express = require('express');
-var fs = require('fs');
+const express = require('express');
+const fs = require('fs');
 
-var router = express.Router();
+const router = express.Router();
 
 /* GET chars listing. */
 router.get('/', function(req, res, next) {
