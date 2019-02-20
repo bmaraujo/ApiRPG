@@ -13,6 +13,27 @@ let redOption = {
 const redClient = redis.createClient(redOption);
 console.log(`client is ${redClient}`);
 
+// GET - Returns damage charName has taken
+router.get('/:charName', function(req,res){
+
+	let damageKey = DAMAGE_KEY.replace("$0",req.params.charName);
+
+	console.log(`damageKey:${damageKey}`);
+
+	redClient.get(damageKey, function(err,reply){
+
+		if(err){
+			console.log(`Erro ao buscar ${damageKey}: ${err}`);
+			return res.status(500).json({success:false,data:err});
+		}
+		if(reply && !isNaN(reply)){
+			let total = parseInt(reply);
+			console.log(`total de dano:${total}`);
+			return res.status(200).json({success:true, data:total});
+		}
+	});
+});
+
 // GET - Returns charName health and damage
 router.get('/:charName/hit', function(req,res){
 
@@ -70,5 +91,24 @@ function updateHealth(amount, charName,res){
 		}
 
 	    return res.status(200).json({success:true, data: total});
+	});
+}
+
+function getDamage(charName){
+	let damageKey = DAMAGE_KEY.replace("$0",charName);
+
+	console.log(`damageKey:${damageKey}`);
+
+	redClient.get(damageKey, function(err,reply,res){
+
+		if(err){
+			console.log(`Erro ao buscar ${damageKey}: ${err}`);
+			return res.status(500).json({success:false,data:err});
+		}
+		if(reply && !isNaN(reply)){
+			let total = parseInt(reply);
+			console.log(`total de dano:${total}`);
+			return total;
+		}
 	});
 }
