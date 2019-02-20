@@ -21,7 +21,7 @@ router.get('/:charName', function(req,res){
 	console.log(`damageKey:${damageKey}`);
 
 	redClient.get(damageKey, function(err,reply){
-
+		console.log(`Redis called (${err},${reply})`);
 		if(err){
 			console.log(`Erro ao buscar ${damageKey}: ${err}`);
 			return res.status(500).json({success:false,data:err});
@@ -31,6 +31,8 @@ router.get('/:charName', function(req,res){
 			console.log(`total de dano:${total}`);
 			return res.status(200).json({success:true, data:total});
 		}
+		console.log(`no err and reply is undefined or NaN.`);
+		return res.status(500).json({success:false, data:"odd"});
 	});
 });
 
