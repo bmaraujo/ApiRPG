@@ -9,6 +9,7 @@
     "body-parser": "~1.18.3",
     "dotenv": "^6.2.0",
     "express": "~4.16.4",
+    "firebase": "^6.3.4",
     "redis": "^2.8.0"
   }
 }
