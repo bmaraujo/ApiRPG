@@ -42,14 +42,20 @@ router.get('/:userId/:charName', function(req, res, next) {
 	  });
 });
 
-/* GET Char for the user*/
+/* GET Char list for the user*/
 router.get('/:userId/', function(req, res, next) {
-	database.ref(encodeURIComponent(req.params.userId) + "/chars").once('value').then(function(snapshot) {
-	  	console.log(JSON.stringify(snapshot));
-	  	let chars = snapshot;
+	database.ref(encodeURIComponent(req.params.userId) + "/chars/").once('value').then(function(snapshot) {
+	  	
+	  	if(snapshot != undefined && snapshot != null){
 
-	  	if(chars != undefined && chars != null){
-			return res.status(200).json({success:true, data: chars});
+	  		let _chars = { chars:[] };
+
+	  		snapshot.forEach(function(childSnapshot){
+	  			
+	  			_chars.chars.push(childSnapshot.val());
+	  		});
+
+	  		return res.status(200).json({success:true, data: _chars});
 		}
 
 		return res.status(404).json();
