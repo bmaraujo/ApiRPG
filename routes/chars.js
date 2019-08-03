@@ -7,7 +7,7 @@ require("firebase/database");
 const router = express.Router();
 
 var firebaseConfig = {
-  apiKey: "",
+  apiKey: process.env.firebaseAppKey,
   authDomain: "",
   databaseURL: "https://bmarpgapi.firebaseio.com/",
   projectId: "bmarpgapi",
