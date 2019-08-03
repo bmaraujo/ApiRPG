@@ -23,14 +23,14 @@ var database = firebase.database();
 /* POST char */
 router.post('/', function(req,res){
 	let request = req.body;
-	writeCharData(request.name,request);
+	writeCharData(request.userId, request.name,request);
 	return res.status(200).json({success:true});
 });
 
 /* GET Char*/
-router.get('/:charName', function(req, res, next) {
+router.get('/:userId/:charName', function(req, res, next) {
 
-	database.ref('chars/' + req.params.charName).once('value').then(function(snapshot) {
+	database.ref('chars/' + req.params.userId + "/" + req.params.charName).once('value').then(function(snapshot) {
 	  	console.log(JSON.stringify(snapshot));
 	  	let char = snapshot;
 
@@ -143,13 +143,13 @@ router.get('/:charName/HitDie', function(req, res, next) {
 module.exports = router;
 
 
-function writeCharData(charName, data) {
-  database.ref('chars/' + charName).set(data);
+function writeCharData(userId, charName, data) {
+  database.ref('chars/' + userId + "/" + charName).set(data);
 }
 
-function readCharData(charName){
+function readCharData(userId, charName){
   let char = undefined;
-  char = database.ref('chars/' + charName).once('value').then(function(snapshot) {
+  char = database.ref('chars/' + userId + "/" + charName).once('value').then(function(snapshot) {
   	console.log(JSON.stringify(snapshot));
   	char = snapshot;
   });

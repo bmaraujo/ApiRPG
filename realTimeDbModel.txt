@@ -1,6 +1,7 @@
-chars/<name>
+<userid>/chars/<name>
 
 {
+	name:
 	details:{
 		playerName:,
 		race:,
@@ -18,6 +19,7 @@ chars/<name>
 		hair:,
 		eyes:
 		},
+	hitDice:,
 	hp:,
 	ac:,
 	iniitiative:,
