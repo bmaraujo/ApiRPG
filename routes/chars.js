@@ -1,7 +1,46 @@
 const express = require('express');
 const fs = require('fs');
+var firebase = require("firebase/app");
+
+require("firebase/database");
 
 const router = express.Router();
+
+var firebaseConfig = {
+  apiKey: "",
+  authDomain: "",
+  databaseURL: "https://bmarpgapi.firebaseio.com/",
+  projectId: "bmarpgapi",
+  storageBucket: "project-id.appspot.com",
+  messagingSenderId: "sender-id",
+};
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+var database = firebase.database();
+
+/* POST char */
+router.post('/', function(req,res){
+	let request = req.body;
+	writeCharData(request.name,request);
+	return res.status(200).json({success:true});
+});
+
+/* GET Char*/
+router.get('/:charName', function(req, res, next) {
+
+	database.ref('chars/' + req.params.charName).once('value').then(function(snapshot) {
+	  	console.log(JSON.stringify(snapshot));
+	  	let char = snapshot;
+
+	  	if(char){
+			return res.status(200).json({success:true, data: char});
+		}
+
+		return res.status(404).json();
+	  });
+});
 
 /* GET chars listing. */
 router.get('/', function(req, res, next) {
@@ -22,12 +61,7 @@ router.get('/', function(req, res, next) {
   return res.status(200).json({success:true, data: response});
 });
 
-/* GET Char*/
-router.get('/:charName', function(req, res, next) {
-	let char = getChar(req.params.charName);
 
-	return res.status(200).json({success:true, data: char});
-});
 
 /* GET Char HP */
 router.get('/:charName/HP', function(req, res, next) {
@@ -107,6 +141,19 @@ router.get('/:charName/HitDie', function(req, res, next) {
 });
 
 module.exports = router;
+
+
+function writeCharData(charName, data) {
+  database.ref('chars/' + charName).set(data);
+}
+
+function readCharData(charName){
+  let char = undefined;
+  char = database.ref('chars/' + charName).once('value').then(function(snapshot) {
+  	console.log(JSON.stringify(snapshot));
+  	char = snapshot;
+  });
+}
 
 function getAllChars(){
 	console.log("opening chars.json");

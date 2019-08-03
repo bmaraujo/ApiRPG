@@ -1,0 +1,57 @@
+chars/<name>
+
+{
+	details:{
+		playerName:,
+		race:,
+		class:,
+		size:,
+		vision:{
+
+		}
+		speed:,
+		background:,
+		alignment:,
+		gender:,
+		height:,
+		weight:,
+		hair:,
+		eyes:
+		},
+	hp:,
+	ac:,
+	iniitiative:,
+	proeficiencyBonus:,
+	level:,
+	xp:,
+	abilityScores:{
+		str:,
+		dex:,
+		con:,
+		int:,
+		wis:,
+		cha:
+	},
+	skills:{
+		athletics:,
+		acrobatics:,
+		sleightHands:,
+		stealth:,
+		arcana:,
+		hisitory:,
+		investigation:,
+		nature:,
+		religion:,
+		animalHandling:,
+		insight:
+		medicine:,
+		perception:,
+		survival:,
+		deception:,
+		intimidation:,
+		performance:,
+		persuasion:
+		passiverPerception:,
+	},
+
+}
