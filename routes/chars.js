@@ -30,7 +30,7 @@ router.post('/', function(req,res){
 /* GET Char*/
 router.get('/:userId/:charName', function(req, res, next) {
 
-	database.ref('chars/' + req.params.userId + "/" + req.params.charName).once('value').then(function(snapshot) {
+	database.ref(req.params.userId + "/chars/" + req.params.charName).once('value').then(function(snapshot) {
 	  	console.log(JSON.stringify(snapshot));
 	  	let char = snapshot;
 
@@ -144,12 +144,12 @@ module.exports = router;
 
 
 function writeCharData(userId, charName, data) {
-  database.ref('chars/' + userId + "/" + charName).set(data);
+  database.ref(userId + "/chars/" + charName).set(data);
 }
 
 function readCharData(userId, charName){
   let char = undefined;
-  char = database.ref('chars/' + userId + "/" + charName).once('value').then(function(snapshot) {
+  char = database.ref(userId + "/chars/" + charName).once('value').then(function(snapshot) {
   	console.log(JSON.stringify(snapshot));
   	char = snapshot;
   });
